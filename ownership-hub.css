@@ -38,3 +38,5 @@
 .charging-pulse{margin-top:0;flex-wrap:wrap}.charging-pulse small{display:inline;font-size:9px}.charging-pulse+.edpower-hero{margin-top:0}
 @media(max-width:760px){.charging-pulse{row-gap:5px}.charging-pulse small{margin-left:18px;flex-basis:100%}}
 @media(prefers-reduced-motion:reduce){.ownership-footer *,.ownership-page *,.bali-concierge *,.hub-home-tools *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Keep the dedicated news link readable beside the primary navigation. */
+@media(min-width:1181px) and (max-width:1500px){.site-header{padding-left:3vw;padding-right:3vw;gap:20px}.site-header .desktop-nav{gap:17px}.site-header .desktop-nav>a,.site-header .desktop-nav summary{font-size:10px}.site-header .brand img{width:140px}.site-header .brand{gap:12px}.site-header .nav-cta{font-size:10px;padding:13px 15px;gap:18px}}
