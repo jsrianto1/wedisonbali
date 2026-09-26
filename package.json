@@ -1,0 +1,14 @@
+{
+  "name": "wedison-bali",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Wedison Bali consumer website",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

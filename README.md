@@ -1,17 +1,29 @@
 # Wedison Bali
 
-Deployment repository for the Wedison Bali consumer website.
+Public consumer website for Wedison Bali, in Indonesian and English.
 
-The repository root contains the ready-to-serve static website. No build command, runtime dependencies, API keys or database are required.
+## Hostinger GitHub deployment
 
-## Hostinger Git deployment
+- Repository: jsrianto1/wedisonbali
+- Branch: main
+- Root directory: repository root
+- Framework: Other (Node.js server)
+- Node version: 22 or 24
+- Build command: npm run build
+- Output directory: dist
+- Entry file: server.js (inside the output directory)
+- Start command if requested: npm start
 
-For a custom HTML website, connect this repository in the website dashboard under Advanced > Git. Deploy the main branch to the website document root, normally public_html. index.html must be at that root.
+The server binds to 0.0.0.0 and uses the PORT assigned by Hostinger. No runtime dependencies, API keys, database or secrets are needed. The server serves only public/ and supports video byte ranges. It does not expose this README, repository files or server source.
 
-The website has 20 Indonesian and English pages, local assets, consumer OTR prices, BAAS information and WhatsApp inquiries. Internal commercial documents and local QA files are excluded.
+## Local preview
 
-## Updating
+npm start
 
-The editable generator project remains in the local wedison-bali-site workspace. Build and validate there, then sync its public directory to this repository and commit the public output. Do not add source business documents or credentials.
+Default port: 4173. Optional PORT and HOST environment variables can override the defaults.
 
-Deployment guide: https://www.hostinger.com/support/1583302-how-to-deploy-a-git-repository-in-hostinger/
+## Content updates
+
+The editable generator project remains in the local wedison-bali-site workspace. Build and validate there, sync its public/ directory here, then commit and push. Do not add internal commercial documents or credentials.
+
+Hostinger guide: https://www.hostinger.com/support/how-to-deploy-a-nodejs-website-in-hostinger/
