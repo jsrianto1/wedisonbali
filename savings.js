@@ -15,9 +15,15 @@
   if (!root.document) return;
   document.querySelectorAll('[data-calculator]').forEach(panel=>{
     const en=panel.dataset.lang==='en', el=n=>panel.querySelector('[name="'+n+'"]'), currency=new Intl.NumberFormat(en?'en-ID':'id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0});
-    const money=n=>currency.format(n), out=(n,s)=>panel.querySelector('[data-result="'+n+'"]').textContent=s;
+    const money=n=>currency.format(n), out=(n,s)=>{const target=panel.querySelector('[data-result="'+n+'"]');if(target)target.textContent=s};
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)'),total=panel.querySelector('[data-result="saving"]');
+    const accessible=document.createElement('span');accessible.className='retail-sr-only';total.after(accessible);total.setAttribute('aria-hidden','true');
+    let displayValue=0,frame=0;
+    function animateTotal(value){cancelAnimationFrame(frame);accessible.textContent=money(value);if(reduced.matches){displayValue=value;out('saving',money(value));return}const from=displayValue,start=performance.now();function tick(now){const progress=Math.min(1,(now-start)/550);displayValue=from+(value-from)*(1-Math.pow(1-progress,3));out('saving',money(displayValue));if(progress<1)frame=requestAnimationFrame(tick)}frame=requestAnimationFrame(tick)}
     function update(event) {
-      if(event?.target===el('ev-model')) el('range').value=models[el('ev-model').value].range;
+      if(event?.target===el('ev-model')) {el('range').value=models[el('ev-model').value].range;const bike=document.querySelector('[data-savings-bike]');if(bike){bike.src='/assets/'+el('ev-model').value+'.webp';if(!reduced.matches)bike.animate([{opacity:0,transform:'translateX(18px)'},{opacity:1,transform:'translateX(0)'}],{duration:400,easing:'ease-out'})}}
+      if(event?.target===el('distance-slider'))el('distance').value=el('distance-slider').value;
+      if(el('distance-slider')){el('distance-slider').value=el('distance').value;el('distance-slider').style.setProperty('--range-fill',((Number(el('distance-slider').value)-1)/499*100)+'%')}
       const m=models[el('ev-model').value], option=el('battery-plan').querySelector('[value="baas"]');
       option.disabled=!m.fee;
       if(!m.fee) el('battery-plan').value='owned';
@@ -26,12 +32,15 @@
         const v={model:el('ev-model').value,plan:el('battery-plan').value};
         for(const n of ['distance','days','petrol','efficiency','electricity','overhead','range']) v[n]=el(n).value.trim()===''?NaN:Number(el(n).value);
         const r=calculate(v); error.hidden=true;
-        out('saving',money(Math.abs(r.saving)));out('annual',money(Math.abs(r.annual))+(r.saving<0?(en?' higher':' lebih mahal'):(en?' lower':' lebih hemat')));
+        animateTotal(Math.abs(r.saving));out('annual',money(Math.abs(r.annual))+(r.saving<0?(en?' higher':' lebih mahal'):(en?' lower':' lebih hemat')));
+        out('percent',Math.round(Math.abs(r.saving)/r.petrol*100)+'% '+(r.saving>=0?(en?'lower than petrol':'lebih rendah dari bensin'):(en?'higher than petrol':'lebih tinggi dari bensin')));
+        panel.querySelector('.savings-result').classList.toggle('is-costlier',r.saving<0);
+        document.querySelectorAll('[data-distance-display],[data-savings-distance]').forEach(s=>s.textContent=v.distance);
         out('verdict',r.saving>=0?(en?'Estimated lower monthly cost with Wedison.':'Estimasi biaya bulanan lebih hemat dengan Wedison.'):(en?'Wedison costs more with these settings.':'Biaya Wedison lebih tinggi dengan pengaturan ini.'));
         out('petrol',money(r.petrol));out('electric',money(r.electric));out('model',m.name);
         out('detail',r.km+' km / '+(en?'month':'bulan')+' · '+(en?'electricity ':'listrik ')+money(r.energy)+(r.fee?' + BAAS '+money(r.fee):''));
         const max=Math.max(r.petrol,r.electric,1);panel.querySelector('.petrol-bar i').style.width=(r.petrol/max*100)+'%';panel.querySelector('.electric-bar i').style.width=(r.electric/max*100)+'%';
-      } catch (_) {error.textContent=en?'Enter valid values within the limits shown in each field.':'Isi angka yang valid sesuai batas pada setiap kolom.';error.hidden=false;for(const n of ['saving','annual','petrol','electric','detail','verdict'])out(n,'');}
+      } catch (_) {cancelAnimationFrame(frame);accessible.textContent='';error.textContent=en?'Enter valid values within the limits shown in each field.':'Isi angka yang valid sesuai batas pada setiap kolom.';error.hidden=false;for(const n of ['saving','annual','petrol','electric','detail','verdict','percent'])out(n,'');}
     }
     panel.addEventListener('input',update);panel.addEventListener('change',update);update();
   });
