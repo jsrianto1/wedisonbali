@@ -6,30 +6,4 @@
 @media(max-width:760px){.cafe-opening{display:block;height:auto;min-height:0;max-height:none;aspect-ratio:941/1672;background:#f4e9d9}.cafe-scene img{object-position:center;object-fit:cover;animation:none}.cafe-opening::after{display:none}.bali-opening-copy{width:100%;padding:26px 6vw 0}.cafe-opening .eyebrow{font-size:8px;max-width:none;margin-bottom:12px}.cafe-opening h1{font-size:clamp(32px,8.5vw,55px);line-height:1.06;margin-bottom:11px;max-width:90%}.cafe-opening h1>span{display:inline}.cafe-opening h1>span:first-child{display:block}.bali-opening-copy>p{font-size:10px;line-height:1.65;margin-bottom:12px;max-width:none}.bali-opening-actions{flex-direction:row;gap:17px;align-items:center}.cafe-opening .button{font-size:8px;min-height:42px;padding:11px 13px;gap:12px}.cafe-opening .text-link{font-size:9px;gap:10px;min-height:42px;padding:5px 0}}
 @media(min-width:500px) and (max-width:760px){.bali-opening-copy{padding-top:35px}.cafe-opening h1{font-size:56px}.bali-opening-copy>p{font-size:13px}.cafe-opening .button{font-size:10px}.cafe-opening .text-link{font-size:11px}.cafe-opening .eyebrow{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.cafe-opening *{animation:none!important;transition:none!important}}
-
-/* Carry the cafe's limestone and warm daylight through the whole homepage. */
-.compact-home{--paper:#f7f3eb;--sand:#eee7db;--line:#d9d1c2;--forest:#245c45;--ink:#253e32;--muted:#626a5d;background:var(--paper);color:var(--ink)}
-.compact-home .site-header{background:#faf6eef5;border-color:#ded6c8}
-.compact-home .mobile-menu,.compact-home .explore-menu{background:#faf6ee;border-color:var(--line)}
-.compact-home .cafe-scene img{filter:saturate(.9) contrast(.98)}
-.compact-home .compact-usp{background:#eee6d9;border-color:var(--line)}
-.compact-home .compact-lineup,.compact-home .hub-home-tools,.compact-home .hub-reviews,.compact-home .compact-visit{background:var(--paper)}
-.compact-home .compact-model,.compact-home .compact-model:nth-child(n){background:#eee8dd}
-.compact-home .compact-model-spec,.compact-home .compact-model .compact-price{border-color:#d3cabb}
-.compact-home .compact-compare .compare{background:#f4eee3}
-.compact-home .compact-compare select{background:#fbf8f1;border-color:var(--line)}
-.compact-home .baas-teaser{background:#ece6d8;border-color:#d4ccbb}
-.compact-home .charging-pulse{background:#ece5d7;border-color:var(--line)}
-.compact-home .compact-charging{background:#ece5d7}
-.compact-home .savings-teaser{background:#ece5d7;color:#24553f}
-.compact-home .planet-teaser{background:#54705a}
-.compact-home .planet-teaser::after{background:linear-gradient(90deg,#334a2fca,#564a281c)}
-.compact-home .booking-form{background:#eee7db;border-color:#d5cbb9}
-.compact-home .booking-form input,.compact-home .booking-form select{background:#faf7f0;border-color:#c8bdab;color:#253e32}
-.compact-home .booking-form input:focus-visible,.compact-home .booking-form select:focus-visible{outline-color:#245c45}
-.compact-home .compact-faq{background:#f0eade}
-.compact-home .ownership-footer{background:#e9e1d3;border-color:#d3c9b8}
-.compact-home .footer-app{background:#f3ede2;border-color:#d6cbbb}
-.compact-home .footer-model-heading,.compact-home .footer-links,.compact-home .footer-bottom,.compact-home .document-model>div{border-color:#d1c7b7}
-.compact-home .concierge-launcher{background:#faf5eb;border-color:#d8cfbe;box-shadow:0 7px 24px #5543281a}
-.compact-home .concierge-panel{background:#faf6ee;border-color:#d8cfbe}
+.cafe-opening .cafe-scene img{filter:saturate(.9) contrast(.98)}

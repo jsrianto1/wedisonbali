@@ -1,0 +1,44 @@
+/* One shared palette. Light limestone surfaces, Wedison green, clear ink.
+   Loaded last on every route; component layouts and product paint stay intact. */
+body.wedison-theme{--paper:#f7f3eb;--sand:#eee7db;--forest:#245c45;--green:#22744f;--ink:#253e32;--muted:#5f685c;--line:#d9d1c2;--hub-ink:#253e32;--hub-green:#245c45;--hub-mint:#eee7db;--hub-border:#d9d1c2;--surface:#faf7f0;--surface-deep:#e9e1d3;background:var(--paper);color:var(--ink);color-scheme:light}
+.wedison-theme .site-header,.wedison-theme .product-subnav{background:#faf6eef5;border-color:var(--line)}
+.wedison-theme :is(.mobile-menu,.ride-menu-panel,.hub-nav>div){background:var(--surface);border-color:var(--line)}
+.wedison-theme :is(.ride-menu-grid a,.ride-model,.product-summary,.feature-panel,.gallery-view,.gallery-thumbs button,.network-map-card,.station-symbol,.baas-art,.baas-product-option,.hub-choice-grid article,.hub-choice-grid article+article,.news-photo,.promo-editorial,.app-showcase>img){background:var(--sand)}
+.wedison-theme :is(.island-product,.features-editorial,.feature-story,.feature-intro,.product-information,.specification,.spec-section,.more-models,.price-page,.legal-page,.ownership-page,.retail-price-page,.booking,.charging,.ride-lineup,.ride-range-note,.compact-lineup,.compact-visit,.hub-home-tools,.hub-reviews){background:var(--paper)}
+.wedison-theme :is(.compact-model,.compact-model:nth-child(n),.compact-model.paint-selected,.product-hero,.product-stats,.product-charge,.gallery-section,.network-hero,.network-compat,.network-directory,.network-close,.charge-film,.app-story,.charging-pulse,.compact-charging,.baas-rates,.baas-teaser,.savings-teaser,.retail-savings-link,.price-notes,.compare,.compact-compare .compare,.faq,.compact-faq,.showroom-info,.network-teaser,.bali-network-banner,.route-help){background:var(--sand);color:var(--ink);border-color:var(--line)}
+.wedison-theme .island-product-art,.wedison-theme .island-product-art.paint-selected{background:var(--sand)!important}
+.wedison-theme :is(.product-card,.product-card.sage,.product-card.blue,.product-card.slate){background:var(--sand)!important;color:var(--ink)}
+.wedison-theme :is(.compact-usp,.trust-strip,.showroom-banner){background:#eee6d9;color:var(--ink);border-color:var(--line)}
+.wedison-theme :is(.booking-form,.feature-closeup,.baas-variants button[aria-pressed=true],.concierge-panel>header){background:#eee7db;border-color:var(--line)}
+.wedison-theme :is(.station-card,.network-location,.feature-dialog,.photo-dialog,.ride-film-dialog,.savings-trip,.concierge-panel,.concierge-greeting,.concierge-languages button,.marketing-consent){background:var(--surface);color:var(--ink);border-color:var(--line)}
+.wedison-theme :is(.compare-table thead th,.compare-table .compare-model,.price-table th){background:#e9e1d3}
+.wedison-theme .price-table td{background:var(--surface)}
+.wedison-theme :is(.field input,.field select,.compare-controls select,.station-tools input,.station-tools select,.route-help select,.calc-fields input,.calc-fields select,.savings-page .calc-fields input,.savings-page .calc-fields select,.engine-cost-input input){background:var(--surface);border-color:#c8bdab;color:var(--ink)}
+.wedison-theme :is(input,select,textarea):focus-visible{outline:2px solid var(--forest);outline-offset:3px}
+.wedison-theme :is(.savings-result,.savings-page .savings-result){background:#eee7db;border-color:var(--line)}
+.wedison-theme :is(.savings-percent,.retail-savings-symbol){background:#dfdfcd;color:#285439}
+.wedison-theme .savings-page .savings-result.is-costlier .savings-percent{background:#e9dcc3;color:#624b26}
+.wedison-theme .app-feature-grid article>div{background:#e5dece}
+.wedison-theme .network-hero-metric{background:#faf7f0eb;color:var(--forest)}
+.wedison-theme .network-close{background:var(--sand)}
+.wedison-theme :is(.network-hero h1,.network-close h2,.product-charge h2,.app-story h2,.charge-film h2,.showroom-banner h2){color:var(--ink)}
+.wedison-theme :is(.network-hero p,.network-close p,.product-charge p,.charge-film p,.app-story p,.app-story .fine-print,.network-hero .hero-link,.app-feature-grid h3,.charge-modes h3){color:var(--muted)}
+.wedison-theme :is(.network-hero .light,.product-charge .light,.charge-film .light,.app-story .light,.showroom-banner .light){color:var(--forest)}
+.wedison-theme :is(.button,.button.dark,.button.white,.hub-button,.nav-cta,.baas-controls>.button,.baas-model-buttons button[aria-pressed=true],.station-filters button[aria-pressed=true]){background:var(--forest);border-color:var(--forest);color:#fff}
+.wedison-theme :is(.button,.hub-button,.nav-cta):hover{background:#326f54;border-color:#326f54}
+.wedison-theme :is(.baas-model-buttons button,.baas-variants button){border-color:var(--line)}
+.wedison-theme .baas-model-buttons button:not([aria-pressed=true]),.wedison-theme .baas-variants button:not([aria-pressed=true]){background:var(--surface)}
+.wedison-theme :is(.site-footer,.ownership-footer){background:var(--surface-deep)!important;color:var(--ink);border-color:#d3c9b8}
+.wedison-theme .footer-app{background:#f3ede2;border-color:#d6cbbb}
+.wedison-theme :is(.footer-model-heading,.footer-links,.footer-legal,.footer-bottom,.document-model>div,.hub-reviews figure,.compact-model-spec){border-color:#d1c7b7}
+.wedison-theme .concierge-launcher{background:var(--surface);border-color:#d8cfbe;box-shadow:0 7px 24px #5543281a}
+.wedison-theme .concierge-languages [aria-pressed=true]{background:#e4e3d3}
+.wedison-theme .planet-teaser::after{background:linear-gradient(90deg,#334a2fca,#564a281c)}
+.wedison-theme .feature-chassis{background:radial-gradient(ellipse at 70% 60%,#e1d8c8,#f4eee3)}
+.wedison-theme .retail-hero-art::before{background:linear-gradient(125deg,#f3ede2,#e8dfce)}
+.wedison-theme .savings-ride-art::before{background:#ece5d7}
+.wedison-theme .island-product-art::after{background:radial-gradient(ellipse at 60% 50%,#d5c8ad40,transparent 65%)}
+.wedison-theme .feature-point-label{background:#faf7f0f2}
+.wedison-theme :is(.hub-choice-grid article,.station-card,.footer-app,.booking-form){border-radius:12px}
+@media(prefers-reduced-motion:no-preference){.wedison-theme :is(.station-card,.hub-choice-grid article,.news-card){transition:transform .35s cubic-bezier(.2,.7,.3,1),border-color .25s}.wedison-theme :is(.station-card,.hub-choice-grid article,.news-card):hover{transform:translateY(-4px);border-color:#a79e88}.wedison-theme :is(.button,.hub-button,.nav-cta):active{transform:translateY(1px)}}
+@media(prefers-reduced-motion:no-preference){.wedison-theme :is(.hub-heading,.baas-intro,.retail-heading,.island-product-heading){animation:brand-arrive .65s cubic-bezier(.2,.7,.3,1) both}@keyframes brand-arrive{from{opacity:.3;transform:translateY(12px)}to{opacity:1;transform:none}}}

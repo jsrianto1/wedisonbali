@@ -1,0 +1,46 @@
+/* Native scrolling drives distance, route and motorcycle, without scroll capture. */
+.ride-journey{position:relative;background:var(--paper);border-block:1px solid var(--line)}
+.journey-stage{position:relative;display:grid;grid-template-columns:.8fr 1.5fr;align-items:center;min-height:690px;padding:50px 5vw 74px;overflow:hidden;background:var(--paper)}
+.journey-copy{position:relative;z-index:2;max-width:410px;align-self:center}
+.journey-model{font:600 10px/1.4 var(--body);letter-spacing:.15em;color:var(--forest);margin:0 0 22px}
+.journey-copy h2{font:500 clamp(34px,3.3vw,56px)/1.08 var(--body);letter-spacing:-.055em;color:var(--ink);margin:0 0 20px}
+.journey-intro{font:400 13px/1.8 var(--body);max-width:295px;color:var(--muted)}
+.journey-range{margin:28px 0 22px}.journey-range>span{font-size:11px;color:var(--muted)}
+.journey-range strong{font:500 clamp(76px,8vw,134px)/1.05 var(--body);letter-spacing:-.08em;display:flex;align-items:baseline;color:var(--forest);font-variant-numeric:tabular-nums}
+.journey-range small{font:500 20px/1 var(--body);letter-spacing:-.02em;margin-left:12px}
+.journey-link{display:inline-flex;align-items:center;gap:36px;border-bottom:1px solid #527259;padding:10px 0;font-size:12px;color:var(--forest);min-height:44px}
+.journey-skip{display:none;font-size:10px;margin-top:14px;color:var(--muted);width:max-content;min-height:30px;padding-block:8px}
+.journey-visual{position:relative;min-width:0;align-self:stretch;min-height:570px}
+.journey-map{position:absolute;inset:-24px -3vw 0 -7%;transform:translateY(calc(var(--journey-progress,1)*-12px));will-change:transform}
+.journey-map-svg{width:100%;height:90%;overflow:visible}
+.journey-coast{fill:#e8e0d1;stroke:#cfc5b1;stroke-width:1.3}
+.journey-terrain{fill:none;stroke:#d5cbb8;stroke-width:1;opacity:.6}
+.journey-island-name{font:500 23px var(--body);letter-spacing:10px;fill:#78816c}
+.journey-sea{font:400 10px var(--body);letter-spacing:3px;fill:#929383}
+.journey-road-base{fill:none;stroke:#c3c5af;stroke-width:4;stroke-linecap:round}
+.journey-road{fill:none;stroke:#277b53;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.journey-waypoints circle{fill:var(--surface);stroke:#467856;stroke-width:2}
+.journey-marker-halo{fill:#398a5526}.journey-marker{fill:#245c45;stroke:#faf7f0;stroke-width:3}
+.journey-map-note{position:absolute;right:4%;top:18px;font-size:9px;color:#64715e}
+.journey-bike{position:absolute;width:66%;bottom:35px;left:8%;transform:translateX(calc(var(--journey-progress,1)*32px - 16px));will-change:transform}
+.journey-bike img{position:relative;z-index:1;width:100%;height:auto;display:block;filter:drop-shadow(0 18px 14px #51442a20)}
+.journey-bike-shadow{position:absolute;left:10%;right:10%;bottom:3%;height:4%;border-radius:50%;background:#655c3920;filter:blur(12px)}
+.journey-chapters{position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:18px;border-top:1px solid var(--line);padding-top:18px}
+.journey-chapters>span{font-size:9px;color:#758070;display:flex;gap:8px;transition:color .3s}.journey-chapters b{font-weight:500}.journey-chapters .is-current{color:#225d40}
+.journey-bottom{position:absolute;bottom:17px;left:5vw;right:5vw;display:flex;align-items:end;justify-content:space-between;gap:24px}
+.journey-bottom p{font-size:9px;line-height:1.65;max-width:650px;color:#626d5c;margin:0}.journey-bottom p a{text-decoration:underline;text-underline-offset:3px}
+.journey-scroll-hint{display:none;white-space:nowrap;font-size:10px;color:var(--forest);gap:20px}
+.journey-progress{position:absolute;bottom:0;left:0;right:0;height:2px;background:#ded7c8}.journey-progress i{display:block;height:100%;background:#447e5b;transform-origin:left;transform:scaleX(var(--journey-progress,1))}
+.journey-next{scroll-margin-top:100px;height:0}.journey-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(prefers-reduced-motion:no-preference) and (min-height:650px){.ride-journey.is-enhanced{height:165svh;min-height:1040px}.is-enhanced .journey-stage{position:sticky;top:82px;height:calc(100svh - 82px);min-height:0;max-height:950px}.is-enhanced .journey-skip{display:block}.is-enhanced .journey-scroll-hint{display:flex}}
+@media(min-width:761px) and (max-height:800px){.journey-stage{padding-top:26px;padding-bottom:65px}.journey-visual{min-height:430px}.journey-copy h2{font-size:36px}.journey-range{margin:14px 0}.journey-range strong{font-size:86px}.journey-model{margin-bottom:14px}.journey-bike{width:57%;bottom:30px}.journey-bottom p{max-width:590px}}
+@media(max-width:1000px) and (min-width:761px){.journey-stage{grid-template-columns:1fr 1.3fr;padding-inline:4vw}.journey-map{inset:0 -10% 0 -16%}.journey-bike{width:90%;left:-5%}.journey-chapters{gap:8px}.journey-copy h2{font-size:38px}}
+@media(max-width:760px){.journey-stage{display:block;padding:28px 6vw 78px;min-height:740px}.journey-copy{max-width:none}.journey-model{font-size:8px;margin-bottom:14px}.journey-copy h2{font-size:34px;max-width:240px;margin-bottom:12px}.journey-intro{font-size:11px;max-width:220px;line-height:1.6}.journey-range{position:absolute;right:0;top:30px;margin:0;text-align:right}.journey-range>span{font-size:8px}.journey-range strong{font-size:66px;justify-content:end}.journey-range small{font-size:14px;margin-left:7px}.journey-link{font-size:10px;gap:20px;padding-block:5px;min-height:32px}.journey-skip{position:absolute;right:0;top:116px;font-size:8px}.journey-visual{min-height:380px;height:45svh;max-height:460px;margin-top:0}.journey-map{inset:-10px -6vw 0 -12vw}.journey-map-svg{height:92%}.journey-map-note{font-size:7px;top:10px;right:6%}.journey-bike{width:65%;left:10%;bottom:30px}.journey-chapters{padding-top:12px;gap:10px}.journey-chapters>span{font-size:8px;gap:5px;line-height:1.4}.journey-bottom{left:6vw;right:6vw;bottom:12px;display:block}.journey-bottom p{font-size:8px;line-height:1.6}.journey-scroll-hint{font-size:8px;margin-top:9px;gap:12px}.journey-island-name{font-size:22px}.journey-sea{font-size:12px}}
+@media(max-width:760px) and (min-height:650px) and (prefers-reduced-motion:no-preference){.ride-journey.is-enhanced{height:150svh;min-height:1000px}.is-enhanced .journey-stage{top:68px;height:calc(100svh - 68px);max-height:950px}.is-enhanced .journey-visual{height:calc(100svh - 368px);min-height:280px;max-height:530px}}
+@media(max-width:380px){.journey-copy h2{font-size:30px;max-width:200px}.journey-range strong{font-size:56px}.journey-intro{max-width:200px}.journey-range{top:26px}}
+.journey-product{--journey-top:136px}
+@media(prefers-reduced-motion:no-preference) and (min-height:650px){.is-enhanced .journey-stage{top:var(--journey-top,82px);height:calc(100svh - var(--journey-top,82px))}}
+@media(max-width:760px){.ride-journey{--journey-top:68px}.journey-product{--journey-top:124px}.journey-stage{display:flex;flex-direction:column;align-items:stretch}.journey-copy{width:100%;flex:none}.journey-visual{flex:1;min-height:370px;height:auto;max-height:none}.journey-map{inset:12px -6vw 0 -12vw}.journey-map-svg{height:84%}.journey-bike{width:65%;left:14%;bottom:38px}.journey-chapters{bottom:0}.journey-bottom p{padding-right:12px}.journey-scroll-hint{padding-right:110px}}
+@media(max-width:760px) and (min-height:650px) and (prefers-reduced-motion:no-preference){.is-enhanced .journey-visual{height:auto;min-height:0;max-height:none}.is-enhanced .journey-stage{padding-bottom:91px}.journey-product .journey-copy h2{font-size:30px}.journey-product .journey-intro{max-width:215px}.journey-product .journey-bike{width:60%}}
+@media(max-width:760px){.journey-copy h2,.journey-product .journey-copy h2{font-size:30px;max-width:calc(100% - 138px)}.journey-range strong{font-size:60px}.journey-bottom p{max-width:calc(100% - 145px);padding-right:0}.is-enhanced .journey-stage{padding-bottom:107px}.journey-product .journey-intro{max-width:235px}.journey-range{top:34px}}
+@media(prefers-reduced-motion:reduce){.journey-map,.journey-bike{transform:none;will-change:auto}.journey-chapters>span{transition:none}.ride-journey{height:auto}.journey-stage{position:relative}}
