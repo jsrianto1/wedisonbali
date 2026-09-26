@@ -17,3 +17,11 @@ ExpiresByType font/woff2 "access plus 1 month"
 ExpiresByType text/css "access plus 1 day"
 ExpiresByType application/javascript "access plus 1 day"
 </IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+</IfModule>
+<Files "README.md">
+Require all denied
+</Files>

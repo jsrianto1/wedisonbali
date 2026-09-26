@@ -1,17 +1,16 @@
 # Wedison Bali
 
-Deployment repository for the Wedison Bali consumer website.
+Public consumer website in Indonesian and English.
 
-The repository root contains the ready-to-serve static website. No build command, runtime dependencies, API keys or database are required.
+## Production deployment
 
-## Hostinger Git deployment
+- Domain: https://wedison-bali.com
+- Repository: jsrianto1/wedisonbali
+- Production branch: hostinger-static
+- Hostinger website type: PHP/HTML
+- Deployment directory: public_html
+- No build command or Node runtime is needed for this branch.
 
-For a custom HTML website, connect this repository in the website dashboard under Advanced > Git. Deploy the main branch to the website document root, normally public_html. index.html must be at that root.
+The main branch preserves a Node.js deployment option. Production uses this static branch.
 
-The website has 20 Indonesian and English pages, local assets, consumer OTR prices, BAAS information and WhatsApp inquiries. Internal commercial documents and local QA files are excluded.
-
-## Updating
-
-The editable generator project remains in the local wedison-bali-site workspace. Build and validate there, then sync its public directory to this repository and commit the public output. Do not add source business documents or credentials.
-
-Deployment guide: https://www.hostinger.com/support/1583302-how-to-deploy-a-git-repository-in-hostinger/
+For updates, build and validate the local wedison-bali-site project, sync its public files into this branch, then commit and push. Keep internal documents and credentials out of the repository.
