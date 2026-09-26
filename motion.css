@@ -1,0 +1,61 @@
+/* Coastal motion: sunlight, a drifting camera and quiet tactile responses. */
+.site-footer{position:relative;isolation:isolate;overflow:hidden;background:#183d37;color:#f4f3eb;padding-top:74px;padding-bottom:90px}
+.site-footer:before{content:'';position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse at 90% 0%,#416d59 0%,transparent 55%)}
+.site-footer .footer-brand img{filter:brightness(0) invert(1)}
+.site-footer .brand>span{color:#f4f3eb;border-color:#8cae9c}
+.site-footer .footer-top>p{color:#f4f3eb;font-size:clamp(30px,3vw,44px)}
+.site-footer a{color:#f4f3eb}
+.site-footer .footer-top>div{font-size:12px;gap:15px}
+.site-footer .footer-top>div a{padding-block:3px;text-decoration:none;text-underline-offset:6px}
+.site-footer .footer-top>div a:hover,.site-footer .footer-top>div a:focus-visible{color:#d4eccb;text-decoration:underline}
+.site-footer .footer-bottom{color:#d3e0d5;border-color:#779a8666;font-size:10px;padding-bottom:12px}
+.footer-island-signature{display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:1px solid #779a8666;padding:28px 0 24px;overflow:hidden;color:#b5d2bb}
+.footer-island-signature strong{font-family:var(--display);font-size:clamp(80px,15vw,230px);line-height:.85;letter-spacing:-.02em;font-weight:500}
+.footer-island-signature span{font-size:10px;letter-spacing:.2em;text-align:right}
+.coastal-lines{position:absolute;inset:0 0 auto auto;width:min(62%,800px);height:100%;opacity:.15;pointer-events:none;z-index:-1}
+.coastal-lines path{stroke:#d4eccb;fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+.hero-frame{overflow:hidden;isolation:isolate;position:relative}
+.hero-frame:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 20%,#fff9df33 45%,transparent 68%);transform:translateX(-100%);opacity:0}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:#7caa8c;z-index:80;pointer-events:none}
+.product-visual img,.circle-link,.station-card,.gallery-thumb,.button>span,.nav-cta span,.text-link>span{transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .35s,background .35s}
+.product-card,.station-card{transition:box-shadow .4s,border-color .4s}
+.island-image{overflow:hidden}
+.island-image img{transform:scale(1.055) translateY(var(--coast-shift,0px))}
+.island-bike{transform:translate(var(--bike-x,0px),var(--bike-y,0px));transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.island-stage{object-position:calc(50% + var(--scene-x,0px)) 58%;transition:object-position .7s ease}
+.site-header.has-scrolled{box-shadow:0 8px 30px #183d370d}
+.site-header{transition:box-shadow .35s}
+@media(hover:hover) and (pointer:fine){
+ .product-card:hover{box-shadow:0 20px 45px #183d3712}
+ .product-card:hover .product-visual img,.product-card:focus-within .product-visual img{transform:translateY(-8px) scale(1.035)}
+ .product-card:hover .circle-link{transform:rotate(45deg);background:#234f48;color:#fff}
+ .station-card:hover{box-shadow:0 12px 28px #183d3710;border-color:#497a65}
+ .button:hover>span,.nav-cta:hover span,.text-link:hover>span{transform:translate(3px,-3px)}
+ .gallery-thumb:hover{transform:translateY(-4px)}
+}
+@media(prefers-reduced-motion:no-preference){
+ .fx-enter{animation:island-arrive .8s cubic-bezier(.22,1,.36,1) var(--arrival-delay,0ms) both}
+ .hero-frame.fx-enter img{animation:coastal-camera 4s cubic-bezier(.2,.7,.3,1) both}
+ .hero-frame.fx-enter:after{animation:sunlight-pass 3.8s .2s ease-out both}
+ .site-footer.fx-footer .coastal-lines path{stroke-dasharray:1500;animation:shoreline-draw 3s ease-out both}
+ .site-footer.fx-footer .coastal-lines path:nth-child(2){animation-delay:.15s}
+ .site-footer.fx-footer .coastal-lines path:nth-child(3){animation-delay:.3s}
+ @keyframes island-arrive{from{opacity:.25;translate:0 25px}to{opacity:1;translate:0 0}}
+ @keyframes coastal-camera{from{transform:scale(1.075)}to{transform:scale(1)}}
+ @keyframes sunlight-pass{0%{opacity:0;transform:translateX(-100%)}35%{opacity:.8}100%{opacity:0;transform:translateX(100%)}}
+ @keyframes shoreline-draw{from{stroke-dashoffset:1500}to{stroke-dashoffset:0}}
+}
+@media(max-width:540px){
+ .site-footer{padding-top:46px;padding-bottom:85px}
+ .site-footer .footer-top>div{font-size:12px}
+ .site-footer .footer-bottom{font-size:10px;line-height:1.8;gap:12px}
+ .footer-island-signature{padding:24px 0;gap:15px}
+ .footer-island-signature strong{font-size:82px}
+ .footer-island-signature span{font-size:8px;max-width:120px}
+ .coastal-lines{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+ .fx-enter,.hero-frame img,.hero-frame:after,.coastal-lines path{animation:none!important}
+ .island-image img,.island-bike,.product-visual img{transform:none!important}
+ .scroll-progress{display:none}
+}
