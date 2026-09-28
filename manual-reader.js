@@ -1,0 +1,15 @@
+(() => {
+ 'use strict';
+ const reader=document.querySelector('.manual-reader');if(!reader)return;
+ const sheets=[...reader.querySelectorAll('.manual-sheet')],select=document.querySelector('#manual-chapter'),search=document.querySelector('#manual-search'),results=document.querySelector('#manual-results'),counter=document.querySelector('#manual-counter'),prev=reader.querySelector('[data-manual-prev]'),next=reader.querySelector('[data-manual-next]'),zoom=reader.querySelector('[data-manual-zoom]'),viewport=reader.querySelector('.manual-viewport');
+ let current=1;const english=reader.dataset.manualLanguage==='en';
+ function show(n,update=true){current=Math.max(1,Math.min(sheets.length,Number(n)||1));sheets.forEach((sheet,i)=>sheet.hidden=i!==current-1);select.value=String(current);counter.textContent=`${current} / ${sheets.length}`;prev.disabled=current===1;next.disabled=current===sheets.length;if(update)history.replaceState(null,'',`#page-${current}`);viewport.scrollLeft=0;updateLanguageLinks();}
+ function updateLanguageLinks(){const offset=(sheets.length-7)/2;document.querySelectorAll('a[data-language]').forEach(link=>{const url=new URL(link.href);let page=current;if(page>=4&&page<4+offset*2){if(url.pathname.startsWith('/en/')&&page<4+offset)page+=offset;else if(!url.pathname.startsWith('/en/')&&page>=4+offset)page-=offset;}url.hash=`page-${page}`;link.href=url.href;});}
+ document.querySelectorAll('a[data-language]').forEach(link=>link.addEventListener('click',updateLanguageLinks));
+ function fromHash(){const match=location.hash.match(/^#page-(\d+)$/);show(match?Number(match[1]):Number(reader.dataset.start),false);}
+ reader.querySelector('.manual-controls').hidden=false;fromHash();window.addEventListener('hashchange',fromHash);
+ select.addEventListener('change',()=>show(select.value));prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));
+ zoom.addEventListener('click',()=>{const enabled=viewport.classList.toggle('is-zoomed');zoom.setAttribute('aria-pressed',String(enabled));zoom.textContent=enabled?(english?'Fit page':'Sesuaikan'):(english?'Zoom':'Perbesar');});
+ reader.addEventListener('keydown',event=>{if(event.target.closest('input,select,textarea,summary')||event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();show(current+(event.key==='ArrowRight'?1:-1));}});
+ search.addEventListener('input',()=>{results.replaceChildren();const query=search.value.trim().toLocaleLowerCase();if(query.length<2)return;const matches=sheets.filter(sheet=>sheet.textContent.toLocaleLowerCase().includes(query));if(!matches.length){results.textContent=english?'No pages found. Try another word.':'Halaman tidak ditemukan. Coba kata lain.';return;}for(const sheet of matches){const button=document.createElement('button');button.type='button';button.textContent=`${sheet.dataset.page} / ${sheet.dataset.title}`;button.addEventListener('click',()=>{show(sheet.dataset.page);select.focus({preventScroll:true});});results.append(button);}});
+})();
