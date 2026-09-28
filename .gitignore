@@ -9,3 +9,13 @@ Thumbs.db
 *.docx
 *.xlsx
 *.pptx
+
+# Approved public product brochures generated for Wedison Bali.
+!/brochures/wedison-bali-athena-id.pdf
+!/brochures/wedison-bali-athena-en.pdf
+!/brochures/wedison-bali-bees-id.pdf
+!/brochures/wedison-bali-bees-en.pdf
+!/brochures/wedison-bali-edpower-id.pdf
+!/brochures/wedison-bali-edpower-en.pdf
+!/brochures/wedison-bali-victory-id.pdf
+!/brochures/wedison-bali-victory-en.pdf

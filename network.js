@@ -17,6 +17,7 @@
       document.querySelector('#station-count').textContent = document.documentElement.lang === 'en' ? `${count} ${count === 1 ? "location" : "locations"} shown` : `${count} lokasi ditampilkan`;
       document.querySelector('.station-empty').hidden = count > 0;
       filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.stationFilter === group)));
+      document.dispatchEvent(new CustomEvent('station-filter-changed'));
     }
     search.addEventListener('input', draw);
     area.addEventListener('change', draw);

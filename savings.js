@@ -1,7 +1,7 @@
 /* Published inputs, adjustable assumptions. No personal data leaves this calculator. */
 (function (root) {
   'use strict';
-  const models = {edpower:{name:'EdPower',kwh:5.068,range:160},victory:{name:'Victory',kwh:2.534,range:110},athena:{name:'Athena',kwh:2.534,range:110},bees:{name:'Bees',kwh:1.6,range:80}};
+  const models = {edpower:{name:'EdPower',kwh:5.068,range:140},victory:{name:'Victory',kwh:2.534,range:110},athena:{name:'Athena',kwh:2.534,range:110},bees:{name:'Bees',kwh:1.6,range:80}};
   function calculate(v) {
     const m=models[v.model];
     if (!m) throw new RangeError('Invalid model');
@@ -36,7 +36,7 @@
         document.querySelectorAll('[data-distance-display],[data-savings-distance]').forEach(s=>s.textContent=v.distance);
         out('verdict',r.saving>=0?(en?'Estimated lower monthly cost with Wedison.':'Estimasi biaya bulanan lebih hemat dengan Wedison.'):(en?'Wedison costs more with these settings.':'Biaya Wedison lebih tinggi dengan pengaturan ini.'));
         out('petrol',money(r.petrol));out('electric',money(r.electric));out('model',m.name);
-        out('detail',r.km+' km / '+(en?'month':'bulan')+' · '+(en?'electricity ':'listrik ')+money(r.energy));
+        out('detail',r.km+' km / '+(en?'month':'bulan')+' Â· '+(en?'electricity ':'listrik ')+money(r.energy));
         out('petrol-detail',(en?'Fuel ':'Bensin ')+money(r.fuel)+(r.oil?' + '+(en?'oil ':'oli ')+money(r.oil):''));
         out('oil-status',r.oil?(en?'Includes your oil spending, averaged over 12 months.':'Termasuk biaya oli dari catatanmu, dirata-ratakan 12 bulan.'):(en?'Energy comparison only. Add your oil spending to see its contribution.':'Saat ini menghitung energi saja. Isi biaya oli untuk melihat tambahan selisihnya.'));
         const max=Math.max(r.petrol,r.electric,1);panel.querySelector('.petrol-bar i').style.width=(r.petrol/max*100)+'%';panel.querySelector('.electric-bar i').style.width=(r.electric/max*100)+'%';

@@ -25,6 +25,9 @@
       const plan = variant==='extended'?'Extended':'Standard';
       const fee = model==='edpower'?750000:variant==='extended'?490000:390000;
       const formatted = 'Rp'+fee.toLocaleString('id-ID');
+      const unit = Number(config.querySelector('[data-baas-model="'+model+'"]').dataset.unitPrice);
+      const unitFormatted = 'Rp'+unit.toLocaleString('id-ID');
+      document.getElementById('baas-unit-price').textContent=unitFormatted;
       config.querySelectorAll('[data-baas-model]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.baasModel===model)));
       config.querySelectorAll('[data-baas-variant]').forEach(b=>{b.hidden=b.dataset.baasVariant==='extended'&&model!=='victory';b.setAttribute('aria-pressed',String(b.dataset.baasVariant===variant));});
       document.getElementById('baas-plan').textContent=names[model]+' '+plan;
@@ -36,7 +39,7 @@
         photo.src=src;photo.alt=t('Motor listrik Wedison ','Wedison electric motorcycle ')+names[model];
       }
       detail.href=(en?'/en':'')+'/motor/'+model+'/';
-      const message=t(`Halo Wedison Bali, saya ingin penawaran BAAS ${names[model]} ${plan}, langganan baterai ${formatted} per bulan. Mohon rincian harga motor OTR Bali, total biaya awal, syarat langganan dan garansi.`,`Hello Wedison Bali, I would like a BAAS quotation for ${names[model]} ${plan} at ${formatted} per month for the battery. Please share the Bali motorcycle price, total upfront cost, subscription terms and warranty details.`);
+      const message=t(`Halo Wedison Bali, saya ingin penawaran BAAS ${names[model]} ${plan}, harga unit ${unitFormatted} OTR Bali dan langganan baterai ${formatted} per bulan. Mohon rincian harga motor OTR Bali, total biaya awal, syarat langganan dan garansi.`,`Hello Wedison Bali, I would like a BAAS quotation for ${names[model]} ${plan} with a ${unitFormatted} Bali OTR motorcycle price and ${formatted} monthly battery subscription. Please share the Bali motorcycle price, total upfront cost, subscription terms and warranty details.`);
       document.getElementById('baas-inquiry').href='https://wa.me/628195693282?text='+encodeURIComponent(message);
       const url=new URL(location.href);url.searchParams.set('model',model);url.searchParams.set('plan',variant);history.replaceState(null,'',url.pathname+url.search+url.hash);
       document.querySelectorAll('[data-language]').forEach(link=>{const u=new URL(link.href);u.searchParams.set('model',model);u.searchParams.set('plan',variant);link.href=u.href;});
