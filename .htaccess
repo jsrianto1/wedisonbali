@@ -25,3 +25,57 @@ RewriteRule (^|/)\.(?!well-known/) - [F,L]
 <Files "README.md">
 Require all denied
 </Files>
+
+# BEGIN WEDISON VERIFIED SEO HEADERS
+<IfModule mod_mime.c>
+AddType text/javascript .js .mjs
+AddType font/ttf .ttf
+AddType font/woff2 .woff2
+</IfModule>
+<IfModule mod_headers.c>
+# Apex host only. No includeSubDomains or preload commitment.
+Header always set Strict-Transport-Security "max-age=31536000"
+<FilesMatch "\.(js|mjs)$">
+Header always set Content-Type "text/javascript; charset=utf-8"
+</FilesMatch>
+<FilesMatch "\.ttf$">
+Header always set Content-Type "font/ttf"
+</FilesMatch>
+<Files "wedison-bali-athena-en.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-athena-en.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-athena-id.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-athena-id.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-bees-en.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-bees-en.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-bees-id.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-bees-id.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-edpower-en.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-edpower-en.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-edpower-id.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-edpower-id.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-victory-en.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-victory-en.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-victory-id.pdf">
+Header always set Link "<https://wedison-bali.com/brochures/wedison-bali-victory-id.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-athena-owner-manual.pdf">
+Header always set Link "<https://wedison-bali.com/manuals/wedison-bali-athena-owner-manual.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-bees-owner-manual.pdf">
+Header always set Link "<https://wedison-bali.com/manuals/wedison-bali-bees-owner-manual.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-edpower-owner-manual.pdf">
+Header always set Link "<https://wedison-bali.com/manuals/wedison-bali-edpower-owner-manual.pdf>; rel=canonical"
+</Files>
+<Files "wedison-bali-victory-owner-manual.pdf">
+Header always set Link "<https://wedison-bali.com/manuals/wedison-bali-victory-owner-manual.pdf>; rel=canonical"
+</Files>
+</IfModule>
+# END WEDISON VERIFIED SEO HEADERS

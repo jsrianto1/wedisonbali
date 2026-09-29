@@ -8,6 +8,8 @@
     button.addEventListener('click', () => {
       document.querySelectorAll('.gallery-thumb').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       main.src = button.dataset.photo;
+      main.srcset = button.dataset.photoSrcset || '';
+      main.sizes = '(max-width: 700px) 100vw, 90vw';
       main.alt = button.dataset.caption + ' Wedison ' + document.body.dataset.model;
       caption.textContent = button.dataset.caption;
     });
