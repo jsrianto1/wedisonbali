@@ -94,8 +94,10 @@
         const label = extended ? 'Extended' : 'Regular';
         const price = extended ? model.extended : model.price;
         document.getElementById('variant-price').textContent = money(price);
-        document.getElementById('variant-range').textContent = extended ? model.rangeExtended : model.range;
-        document.getElementById('variant-battery').innerHTML = `${number(extended ? model.batteryExtended : model.battery)}<small>kWh</small>`;
+        const rangeDisplay = document.getElementById('variant-range');
+        const batteryDisplay = document.getElementById('variant-battery');
+        if (rangeDisplay) rangeDisplay.textContent = extended ? model.rangeExtended : model.range;
+        if (batteryDisplay) batteryDisplay.innerHTML = `${number(extended ? model.batteryExtended : model.battery)}<small>kWh</small>`;
         const paint = document.body.dataset.selectedColorLabel;
         const preference = paint ? (en ? ` Preferred colour: ${paint}.` : ` Warna pilihan: ${paint}.`) : '';
         document.getElementById('product-inquiry').href = wa(en ? `Hello Wedison Bali, I am interested in ${model.name} ${label} at the Bali OTR price of ${money(price)}.${preference} Please share availability and a personal purchase offer.` : `Halo Wedison Bali, saya tertarik ${model.name} ${label}, harga OTR Bali ${money(price)}.${preference} Mohon info ketersediaan dan penawaran pembelian pribadi.`);
