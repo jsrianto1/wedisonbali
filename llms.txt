@@ -1,0 +1,30 @@
+# Wedison Bali
+
+> Consumer information for electric motorcycles in Bali. Bali OTR prices and BAAS subscriptions are separate purchase options.
+
+## Bahasa Indonesia
+
+- [Pertanyaan pembeli di Bali](https://wedison-bali.com/#faq)
+- [Harga OTR Bali](https://wedison-bali.com/harga/)
+- [Harga unit BAAS dan biaya langganan](https://wedison-bali.com/baas/)
+- [Direktori SuperCharge Bali](https://wedison-bali.com/supercharge/)
+- [Aplikasi Wedison SuperCharge](https://wedison-bali.com/aplikasi/)
+- [Garansi dan servis](https://wedison-bali.com/garansi/)
+- [Kalkulator biaya berkendara](https://wedison-bali.com/penghematan/)
+- [Showroom dan test ride Denpasar](https://wedison-bali.com/experience-center/)
+
+## English
+
+- [Bali buyer questions](https://wedison-bali.com/en/#faq)
+- [Bali retail prices](https://wedison-bali.com/en/harga/)
+- [BAAS vehicle and subscription prices](https://wedison-bali.com/en/baas/)
+- [Bali SuperCharge directory](https://wedison-bali.com/en/supercharge/)
+- [Wedison SuperCharge app](https://wedison-bali.com/en/aplikasi/)
+- [Warranty and servicing](https://wedison-bali.com/en/garansi/)
+- [Running cost calculator](https://wedison-bali.com/en/penghematan/)
+- [Denpasar showroom and test rides](https://wedison-bali.com/en/experience-center/)
+
+## Related sources
+
+- [Wedison Indonesia: national charging directory](https://wedison.co/id/super-charge/locations/)
+- [Werigo: Bali scooter rentals](https://werigo.co/)
