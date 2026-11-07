@@ -17,7 +17,7 @@
     function select(index, announce=false) {
       buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
       panels.forEach((panel,i)=>{panel.hidden=i!==index;});
-      if (announce) {fade(panels[index]);status.textContent=buttons[index].textContent;}
+      if (announce) {fade(panels[index]);status.textContent=panels[index].querySelector('h3').textContent;}
     }
     buttons.forEach((button,index)=>button.addEventListener('click',()=>select(index,true)));
     select(0);proof.classList.add('proof-ready');
