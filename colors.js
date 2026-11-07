@@ -12,18 +12,22 @@
   const label = button => button.dataset[en ? 'labelEn' : 'labelId'];
   const paintRequests = new Map();
   const readyImages = new Map();
-  function changeBody(model, button, animate) {
-    const source = `/assets/paints/${model}-${button.dataset.color}.webp`;
-    const request = Symbol(); paintRequests.set(model,request);
-    const images = [...document.querySelectorAll(`[data-feature-model="${model}"] > img.feature-bike`)];
-    if (document.body.dataset.model===model) images.push(...document.querySelectorAll('.product-stage > img'));
-    if (!images.length) return;
+  function preparePaint(source) {
     let loading = readyImages.get(source);
     if (!loading) {
       const preview = new Image(); preview.src=source;
       loading=preview.decode();readyImages.set(source,loading);
       loading.catch(()=>readyImages.delete(source));
     }
+    return loading;
+  }
+  function changeBody(model, button, animate) {
+    const source = `/assets/paints/${model}-${button.dataset.color}.webp`;
+    const request = Symbol(); paintRequests.set(model,request);
+    const images = [...document.querySelectorAll(`[data-feature-model="${model}"] > img.feature-bike`)];
+    if (document.body.dataset.model===model) images.push(...document.querySelectorAll('.product-stage > img'));
+    if (!images.length) return;
+    const loading = preparePaint(source);
     images.forEach(img=>img.classList.add('paint-loading'));
     loading.then(()=>{
       if (paintRequests.get(model)!==request) return;
@@ -32,7 +36,7 @@
         img.classList.remove('paint-loading');
         if(animate&&!reduced.matches&&!document.body.classList.contains('explorer-motion-paused')) {
           img.getAnimations().forEach(a=>a.cancel());
-          img.animate([{opacity:.25,filter:'blur(2px)',transform:'translateY(7px) scale(.985)'},{opacity:1,filter:'blur(0)',transform:'translateY(0) scale(1)'}],{duration:520,easing:'cubic-bezier(.2,.75,.2,1)'});
+          img.animate([{opacity:.6},{opacity:1}],{duration:150,easing:'cubic-bezier(.23,1,.32,1)'});
         }
       });
     }).catch(()=>{
@@ -81,10 +85,16 @@
   }
 
   groups.forEach(group => group.querySelectorAll('[data-color]').forEach(button => {
+    const warm = () => preparePaint(`/assets/paints/${group.dataset.colorModel}-${button.dataset.color}.webp`);
+    button.addEventListener('pointerenter', warm, {once:true});
+    button.addEventListener('pointerdown', warm, {once:true});
+    button.addEventListener('focus', warm, {once:true});
     button.addEventListener('click', () => selectPaint(group.dataset.colorModel, button.dataset.color));
   }));
   const product = document.body.dataset.model;
-  const defaults={edpower:'grey-glossy',athena:'green-glossy',victory:'black-matte',bees:'white-glossy'};
+  const defaults=document.body.classList.contains('bali-motion-home')
+    ? {edpower:'red-glossy',athena:'white-glossy',victory:'silver-glossy',bees:'grey-glossy'}
+    : {edpower:'grey-glossy',athena:'green-glossy',victory:'black-matte',bees:'white-glossy'};
   new Set(groups.map(g=>g.dataset.colorModel)).forEach(model=>{
     const button=groups.find(g=>g.dataset.colorModel===model).querySelector(`[data-color="${defaults[model]}"]`);
     groups.filter(g=>g.dataset.colorModel===model).forEach(g=>{

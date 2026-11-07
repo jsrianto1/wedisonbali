@@ -10,7 +10,7 @@
     function stop(){running=false;sync();}
     steps.forEach((b,j)=>b.addEventListener('click',()=>{stop();select(j);}));
     document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',()=>{if(reduced.matches)running=false;sync();});
-    if('IntersectionObserver' in window)new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.15}).observe(section);
+    if('IntersectionObserver' in window)new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.15}).observe(section.querySelector('.rb-phone-art')||section);
     else {visible=true;sync();}
     select(0); sync();
   }
