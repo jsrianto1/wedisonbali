@@ -10,3 +10,5 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.rb-benefit-grid figure img{transition:transform .4s ease}.rb-benefit-grid a:hover img{transform:scale(1.035)}}
 
 @media(max-width:700px){.rb-benefit-grid a:nth-child(odd){padding-inline:0 12px}.rb-benefit-grid a:nth-child(even){padding-inline:12px 0}}
+
+.rb-capacity{font:500 12px/1.5 var(--body,sans-serif);color:#405b49;margin:7px 0 0}.rb-verification{font:400 13px/1.6 var(--body,sans-serif);color:#495e50;margin:16px 0 0;max-width:85ch}.rb-dir-heading p strong{display:inline-block;color:var(--rb-ink);font-size:18px;line-height:1.4;margin-bottom:5px}

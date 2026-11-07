@@ -24,7 +24,8 @@
   const wrap=document.querySelector('.rb-directory');
   if(!wrap)return;
   const cards=[...wrap.querySelectorAll('.rb-station')], filters=[...wrap.querySelectorAll('[data-rb-filter]')], input=wrap.querySelector('#rb-search'), area=wrap.querySelector('#rb-area'), markers=new Map();
-  let map,layer,status='';
+  const defaultStatus=wrap.dataset.rbDefaultStatus||'';
+  let map,layer,status=defaultStatus;
   const googleDialog=wrap.querySelector('#rb-google-dialog');
   let googleTrigger;
   for(const card of cards){
@@ -67,6 +68,6 @@
   input.addEventListener('input',draw);area.addEventListener('change',draw);
   filters.forEach(b=>b.addEventListener('click',()=>{status=b.dataset.rbFilter;draw();}));
   wrap.querySelector('[data-rb-fit]').addEventListener('click',fit);
-  wrap.querySelector('[data-rb-reset]').addEventListener('click',()=>{input.value='';area.value='';status='';draw();input.focus();});
+  wrap.querySelector('[data-rb-reset]').addEventListener('click',()=>{input.value='';area.value='';status=defaultStatus;draw();input.focus();});
   draw();
 })();
