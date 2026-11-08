@@ -79,3 +79,16 @@ Header always set Link "<https://wedison-bali.com/manuals/wedison-bali-victory-o
 </Files>
 </IfModule>
 # END WEDISON VERIFIED SEO HEADERS
+
+# BEGIN WEDISON DEFAULT ENGLISH
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/$
+RewriteCond %{HTTP_COOKIE} !(^|;\s*)wedison_language=id(;|$) [NC]
+RewriteRule ^$ /en/ [R=302,L]
+</IfModule>
+<IfModule mod_headers.c>
+Header always set Cache-Control "no-store" "expr=%{REQUEST_URI} == '/'"
+Header always merge Vary "Cookie" "expr=%{REQUEST_URI} == '/'"
+</IfModule>
+# END WEDISON DEFAULT ENGLISH

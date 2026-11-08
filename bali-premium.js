@@ -31,7 +31,7 @@
     const sync=()=>{
       const index=steps.findIndex(button=>button.getAttribute('aria-pressed')==='true');
       section.dataset.baliStep=String(index);
-      if(previous>=0&&previous!==index)fade(section.querySelector('.rb-phone'));
+      if(previous>=0&&previous!==index)fade(section.querySelector('[data-rb-screen].rb-current'));
       previous=index;
     };
     new MutationObserver(sync).observe(section.querySelector('.rb-steps'),{attributes:true,attributeFilter:['aria-pressed'],subtree:true});

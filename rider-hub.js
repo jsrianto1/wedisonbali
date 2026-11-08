@@ -14,11 +14,4 @@
     else {visible=true;sync();}
     select(0); sync();
   }
-  const film=document.querySelector('#supercharge-film');
-  if(film && 'IntersectionObserver' in window){
-    let visible=false;
-    const sync=()=>{if(!visible||document.hidden||reduced.matches){film.pause();return;}if(!film.ended)film.play().catch(()=>{});};
-    new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.35}).observe(film);
-    document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
-  }
 })();
