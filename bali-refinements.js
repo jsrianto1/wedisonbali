@@ -32,7 +32,7 @@
       button.disabled=true;button.textContent=en?'Loading video…':'Memuat video…';
       if(!film.getAttribute('src'))film.src=film.dataset.videoSrc;
       film.controls=true;
-      film.play().then(()=>{button.hidden=true;}).catch(()=>{button.disabled=false;button.textContent=label;document.querySelector('.film-error').hidden=false;});
+      film.play().then(()=>{button.hidden=true;}).catch(error=>{button.disabled=false;button.hidden=false;button.textContent=label;if(error.name!=='AbortError')document.querySelector('.film-error').hidden=false;});
     });
     film.addEventListener('playing',()=>{button.hidden=true;document.querySelector('.film-error').hidden=true;});
     film.addEventListener('ended',()=>{button.disabled=false;button.hidden=false;button.textContent=en?'Watch again ↗':'Tonton lagi ↗';});
