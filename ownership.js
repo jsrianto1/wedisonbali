@@ -33,7 +33,7 @@
       document.getElementById('baas-plan').textContent=names[model]+' '+plan;
       price.textContent=formatted;
       document.querySelector('.baas-model-word').textContent=names[model];
-      const src='/assets/'+model+'.webp';
+      const src='/assets/'+model+(model==='athena'?'-v20261117':'')+'.webp';
       if (photo.getAttribute('src')!==src) {
         photo.onload=()=>{if(moved)animate(photo,[{opacity:0,transform:'translateX(20px) scale(.97)'},{opacity:1,transform:'translateX(0) scale(1)'}],650);};
         photo.src=src;photo.alt=t('Motor listrik Wedison ','Wedison electric motorcycle ')+names[model];

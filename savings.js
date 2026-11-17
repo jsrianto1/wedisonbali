@@ -21,7 +21,7 @@
     let displayValue=0,frame=0;
     function animateTotal(value){cancelAnimationFrame(frame);accessible.textContent=money(value);if(reduced.matches){displayValue=value;out('saving',money(value));return}const from=displayValue,start=performance.now();function tick(now){const progress=Math.min(1,(now-start)/550);displayValue=from+(value-from)*(1-Math.pow(1-progress,3));out('saving',money(displayValue));if(progress<1)frame=requestAnimationFrame(tick)}frame=requestAnimationFrame(tick)}
     function update(event) {
-      if(event?.target===el('ev-model')) {el('range').value=models[el('ev-model').value].range;const bike=document.querySelector('[data-savings-bike]');if(bike){bike.src='/assets/'+el('ev-model').value+'.webp';if(!reduced.matches)bike.animate([{opacity:0,transform:'translateX(18px)'},{opacity:1,transform:'translateX(0)'}],{duration:400,easing:'ease-out'})}}
+      if(event?.target===el('ev-model')) {el('range').value=models[el('ev-model').value].range;const bike=document.querySelector('[data-savings-bike]');if(bike){bike.src='/assets/'+el('ev-model').value+(el('ev-model').value==='athena'?'-v20261117':'')+'.webp';if(!reduced.matches)bike.animate([{opacity:0,transform:'translateX(18px)'},{opacity:1,transform:'translateX(0)'}],{duration:400,easing:'ease-out'})}}
       if(event?.target===el('distance-slider'))el('distance').value=el('distance-slider').value;
       if(el('distance-slider')){el('distance-slider').value=el('distance').value;el('distance-slider').style.setProperty('--range-fill',((Number(el('distance-slider').value)-1)/499*100)+'%')}
       const m=models[el('ev-model').value];

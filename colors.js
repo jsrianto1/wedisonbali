@@ -12,6 +12,7 @@
   const label = button => button.dataset[en ? 'labelEn' : 'labelId'];
   const paintRequests = new Map();
   const readyImages = new Map();
+  const paintSource = (model, colour) => `/assets/paints/${model}-${colour}${model==='athena'?'-v20261117':''}.webp`;
   function preparePaint(source) {
     let loading = readyImages.get(source);
     if (!loading) {
@@ -22,7 +23,7 @@
     return loading;
   }
   function changeBody(model, button, animate) {
-    const source = `/assets/paints/${model}-${button.dataset.color}.webp`;
+    const source = paintSource(model, button.dataset.color);
     const request = Symbol(); paintRequests.set(model,request);
     const images = [...document.querySelectorAll(`[data-feature-model="${model}"] > img.feature-bike`)];
     if (document.body.dataset.model===model) images.push(...document.querySelectorAll('.product-stage > img'));
@@ -85,7 +86,7 @@
   }
 
   groups.forEach(group => group.querySelectorAll('[data-color]').forEach(button => {
-    const warm = () => preparePaint(`/assets/paints/${group.dataset.colorModel}-${button.dataset.color}.webp`);
+    const warm = () => preparePaint(paintSource(group.dataset.colorModel, button.dataset.color));
     button.addEventListener('pointerenter', warm, {once:true});
     button.addEventListener('pointerdown', warm, {once:true});
     button.addEventListener('focus', warm, {once:true});
