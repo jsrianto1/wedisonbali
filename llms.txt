@@ -38,3 +38,16 @@ Checked 2026-11-17: 5 confirmed operating locations. Four are supported by owner
 
 - [Wedison Indonesia: original national charging directory](https://wedison.co/id/super-charge/locations/)
 - [Werigo: Bali scooter rentals](https://werigo.co/)
+
+## Current model specifications
+
+Source: owner-provided WEDISON EV Specifications dated 18 November 2026.
+- [Structured specifications for all six models](https://wedison-bali.com/assets/specifications.json)
+- Victory: 3 kW rated / 6 kW peak; 85 km/h top speed; 120 km at 45 km/h; 100 km at 60 km/h; 80 km at 80 km/h.
+- Athena: 3 kW rated / 5 kW peak; 85 km/h top speed; 120 km at 45 km/h; 100 km at 60 km/h; 80 km at 80 km/h.
+- EdPower: 4 kW rated / 7 kW peak; 90 km/h top speed; 200 km at 45 km/h; 140 km at 60 km/h; 90 km at 80 km/h.
+- Bees: 1.2 kW rated / 2 kW peak; 60 km/h top speed; 80 km at 45 km/h; 70 km at 50 km/h; 60 km at 55 km/h.
+- Bees Pro: 1.5 kW rated / 3 kW peak; 60 km/h top speed; 90 km at 40 km/h; 70 km at 60 km/h. Coming soon; no launch price or date confirmed.
+- Tank: 3 kW rated / 5 kW peak; 70 km/h top speed; 120 km at 45 km/h; 100 km at 60 km/h; 80 km at 70 km/h. Coming soon; no launch price or date confirmed.
+
+Athena and Victory range results are not assigned to a battery variant in the source. Bees regular charger is optional and Bees does not support SuperCharge. Other models list 10 kW fast charging.

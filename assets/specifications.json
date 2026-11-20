@@ -1,0 +1,256 @@
+{
+  "sourceDate": "2026-11-18",
+  "source": "WEDISON EV Specifications, 18 November 2026",
+  "models": {
+    "victory": {
+      "name": "Victory",
+      "rated": "3",
+      "peak": "6",
+      "wh": "2534 / 3456",
+      "voltage": "76.8 V / 33 Ah · 45 Ah",
+      "battery_size": "310 × 225 × 270",
+      "controller": "72 V / 70 A",
+      "speed": 85,
+      "modes": "55 / 85",
+      "ranges": [
+        [
+          45,
+          120
+        ],
+        [
+          60,
+          100
+        ],
+        [
+          80,
+          80
+        ]
+      ],
+      "dimensions": "1950 × 690 × 1130",
+      "weight": "116.5",
+      "wheelbase": 1380,
+      "clearance": 140,
+      "seat": 765,
+      "front": "90/90-14",
+      "rear": "100/80-14",
+      "front_rim": "MT14 × 1.85",
+      "rear_rim": "MT14 × 2.5",
+      "meter": "LCD",
+      "cbs": true,
+      "charge": true,
+      "climb": ">15°",
+      "battery_pack": "Soft pack",
+      "regular_charger": "included",
+      "launch_status": "current",
+      "torque": null,
+      "range_battery_variant_unspecified": true
+    },
+    "athena": {
+      "name": "Athena",
+      "rated": "3",
+      "peak": "5",
+      "wh": "2534 / 3456",
+      "voltage": "76.8 V / 33 Ah · 45 Ah",
+      "battery_size": "480 × 225 × 160",
+      "controller": "72 V / 70 A",
+      "speed": 85,
+      "modes": "55 / 85",
+      "ranges": [
+        [
+          45,
+          120
+        ],
+        [
+          60,
+          100
+        ],
+        [
+          80,
+          80
+        ]
+      ],
+      "dimensions": "1850 × 750 × 1155",
+      "weight": "113.5",
+      "wheelbase": 1350,
+      "clearance": 160,
+      "seat": 775,
+      "front": "100/80-12",
+      "rear": "100/80-12",
+      "front_rim": "MT12 × 2.15",
+      "rear_rim": "MT12 × 2.5",
+      "meter": "LCD",
+      "cbs": true,
+      "charge": true,
+      "climb": ">15°",
+      "torque": 150,
+      "battery_pack": "Soft pack",
+      "regular_charger": "included",
+      "launch_status": "current",
+      "range_battery_variant_unspecified": true
+    },
+    "edpower": {
+      "name": "EdPower",
+      "rated": "4",
+      "peak": "7",
+      "wh": "5068",
+      "voltage": "76.8 V / 66 Ah",
+      "battery_size": "480 × 225 × 160",
+      "controller": "72 V / 80 A",
+      "speed": 90,
+      "modes": "50 / 65 / 90",
+      "ranges": [
+        [
+          45,
+          200
+        ],
+        [
+          60,
+          140
+        ],
+        [
+          80,
+          90
+        ]
+      ],
+      "dimensions": "2000 × 710 × 1200",
+      "weight": "140",
+      "wheelbase": 1450,
+      "clearance": 160,
+      "seat": 740,
+      "front": "100/80-14",
+      "rear": "120/70-14",
+      "front_rim": "MT14 × 2.5",
+      "rear_rim": "MT14 × 3.5",
+      "meter": "TFT",
+      "cbs": true,
+      "charge": true,
+      "climb": ">12°",
+      "torque": 170,
+      "battery_pack": "Soft pack",
+      "regular_charger": "included",
+      "launch_status": "current"
+    },
+    "bees": {
+      "name": "Bees",
+      "rated": "1.2",
+      "peak": "2",
+      "wh": "1600",
+      "voltage": "64 V / 25 Ah",
+      "battery_size": "320 × 220 × 160",
+      "controller": "64 V / 50 A",
+      "speed": 60,
+      "modes": "45 / 60",
+      "ranges": [
+        [
+          45,
+          80
+        ],
+        [
+          50,
+          70
+        ],
+        [
+          55,
+          60
+        ]
+      ],
+      "dimensions": "1790 × 670 × 1110",
+      "weight": "78.5",
+      "wheelbase": 1370,
+      "clearance": 160,
+      "seat": 765,
+      "front": "90/90-10",
+      "rear": "90/90-10",
+      "front_rim": "MT10 × 2.15",
+      "rear_rim": "MT10 × 2.15",
+      "meter": "LED",
+      "cbs": false,
+      "charge": false,
+      "climb": ">12°",
+      "battery_pack": "Soft pack",
+      "regular_charger": "optional",
+      "launch_status": "current",
+      "torque": null
+    },
+    "bees-pro": {
+      "name": "Bees Pro",
+      "rated": "1.5",
+      "peak": "3",
+      "wh": "2534",
+      "voltage": "76.8 V / 33 Ah",
+      "battery_size": "480 × 225 × 160",
+      "controller": "72 V / 50 A",
+      "speed": 60,
+      "modes": "40 / 60",
+      "ranges": [
+        [
+          40,
+          90
+        ],
+        [
+          60,
+          70
+        ]
+      ],
+      "dimensions": "1790 × 670 × 1110",
+      "weight": "80",
+      "wheelbase": 1370,
+      "clearance": 180,
+      "seat": 780,
+      "front": "100/80-12",
+      "rear": "100/80-12",
+      "front_rim": "MT12 × 2.15",
+      "rear_rim": "MT12 × 2.5",
+      "meter": "LCD",
+      "cbs": false,
+      "charge": true,
+      "climb": ">12°",
+      "torque": 120,
+      "battery_pack": "Soft pack",
+      "regular_charger": "included",
+      "launch_status": "coming_soon"
+    },
+    "tank": {
+      "name": "Tank",
+      "rated": "3",
+      "peak": "5",
+      "wh": "3456",
+      "voltage": "76.8 V / 45 Ah",
+      "battery_size": "480 × 225 × 160",
+      "controller": "72 V / 70 A",
+      "speed": 70,
+      "modes": "50 / 70",
+      "ranges": [
+        [
+          45,
+          120
+        ],
+        [
+          60,
+          100
+        ],
+        [
+          70,
+          80
+        ]
+      ],
+      "dimensions": "1880 × 730 × 1195",
+      "weight": "130",
+      "wheelbase": 1380,
+      "clearance": 150,
+      "seat": 775,
+      "front": "100/80-12",
+      "rear": "100/80-12",
+      "front_rim": "MT12 × 2.5",
+      "rear_rim": "MT12 × 2.5",
+      "meter": "LCD",
+      "cbs": true,
+      "charge": true,
+      "climb": ">15°",
+      "torque": 150,
+      "battery_pack": "Soft pack",
+      "regular_charger": "included",
+      "launch_status": "coming_soon"
+    }
+  }
+}
